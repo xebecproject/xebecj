@@ -65,33 +65,61 @@ public class TestNet3Params extends AbstractBitcoinNetParams {
             checkState(genesisHash.equals(CoinDefinition.testnetGenesisHash));
         alertSigningKey = HEX.decode(CoinDefinition.TESTNET_SATOSHI_KEY);
 
-        dnsSeeds = CoinDefinition.testnetDnsSeeds;
+        dnsSeeds = new String[] {
+                "testnet-seed.dashdot.io",
+                "35.161.101.35",
+                "54.91.130.170",
+                "95.183.51.146"
+        };
 
         checkpoints.put(    261, Sha256Hash.wrap("00000c26026d0815a7e2ce4fa270775f61403c040647ff2c3091f99e894a4618"));
         checkpoints.put(   1999, Sha256Hash.wrap("00000052e538d27fa53693efe6fb6892a0c1d26c0235f599171c48a3cce553b1"));
         checkpoints.put(   2999, Sha256Hash.wrap("0000024bc3f4f4cb30d29827c13d921ad77d2c6072e586c7f60d83c2722cdcc5"));
 
         addrSeeds = new int[] {
-                0xf8a7ed22,
-                0xe05dee22,
-                0x2e4de52b,
-                0x5f68202d,
-                0x1fd7202d,
-                0xe6dd202d,
-                0x4ced202d,
-                0x712e0734,
-                0x8117c934,
-                0x8e14448a,
-                0x5008e3a5,
-                0x80e5b6d9,
-                0x84e5b6d9,
-                0x86e5b6d9,
-                0x88e5b6d9
+                0xaa34ca12,
+                0xaa34ca12,
+                0xaa34ca12,
+                0xaa34ca12,
+                0xaa34ca12,
+                0xaa34ca12,
+                0x140fff22,
+                0x140fff22,
+                0x140fff22,
+                0x140fff22,
+                0x140fff22,
+                0x140fff22,
+                0x35d03234,
+                0x35d03234,
+                0x35d03234,
+                0x35d03234,
+                0x35d03234,
+                0x35d03234,
+                0x55ee213f,
+                0x55ee213f,
+                0x55ee213f,
+                0x55ee213f,
+                0x55ee213f,
+                0x55ee213f,
+                0x10ebef91,
+                0x11ebef91,
+                0x12ebef91,
+                0x13ebef91,
+                0x14ebef91,
+                0x15ebef91,
+                0x16ebef91,
+                0x17ebef91,
+                0x18ebef91,
+                0x19ebef91,
+                0xf9cb3eb2
         };
         bip32HeaderPub = 0x043587cf;
         bip32HeaderPriv = 0x04358394 ;
 
         strSporkAddress = "yjPtiKh2uwk3bDutTEA2q9mCtXyiZRWn55";
+        budgetPaymentsStartBlock = 4100;
+        budgetPaymentsCycleBlocks = 50;
+        budgetPaymentsWindowBlocks = 10;
 
      //   bip32HeaderPub = 0x043587CF;
      //   bip32HeaderPriv = 0x04358394;
@@ -102,7 +130,7 @@ public class TestNet3Params extends AbstractBitcoinNetParams {
 
         DIP0001Window = TESTNET_MAJORITY_DIP0001_WINDOW;
         DIP0001Upgrade = TESTNET_MAJORITY_DIP0001_THRESHOLD;
-        DIP0001BlockHeight = 15000;
+        DIP0001BlockHeight = 4400;
 
         fulfilledRequestExpireTime = 5*60;
         masternodeMinimumConfirmations = 1;
@@ -111,8 +139,8 @@ public class TestNet3Params extends AbstractBitcoinNetParams {
         nGovernanceMinQuorum = 1;
         nGovernanceFilterElements = 500;
 
-        powDGWHeight = 4001;
-        powKGWHeight = 4001;
+        powDGWHeight = 4002;
+        powKGWHeight = 4002;
         powAllowMinimumDifficulty = true;
         powNoRetargeting = false;
 

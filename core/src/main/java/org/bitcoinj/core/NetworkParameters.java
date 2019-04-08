@@ -114,6 +114,8 @@ public abstract class NetworkParameters {
     protected int spendableCoinbaseDepth;
     protected int subsidyDecreaseBlockCount;
     protected int budgetPaymentsStartBlock;
+    protected int budgetPaymentsCycleBlocks;
+    protected int budgetPaymentsWindowBlocks;
     
     protected int[] acceptableAddressCodes;
     protected String[] dnsSeeds;
@@ -355,6 +357,14 @@ public abstract class NetworkParameters {
 
     public int getBudgetPaymentsStartBlock() {
         return budgetPaymentsStartBlock;
+    }
+
+    public int getBudgetPaymentsCycleBlocks() {
+        return budgetPaymentsCycleBlocks;
+    }
+
+    public int getBudgetPaymentsWindowBlocks() {
+        return budgetPaymentsWindowBlocks;
     }
 
     /** Returns DNS names that when resolved, give IP addresses of active peers. */
@@ -625,10 +635,11 @@ public abstract class NetworkParameters {
     public abstract int getProtocolVersionNum(final ProtocolVersion version);
 
     public static enum ProtocolVersion {
-        MINIMUM(70209),
+        MINIMUM(70213),
         PONG(60001),
-        BLOOM_FILTER(CoinDefinition.MIN_PROTOCOL_VERSION),
-        CURRENT(70212);
+        BLOOM_FILTER(MINIMUM.getBitcoinProtocolVersion()),
+        DMN_LIST(70213),
+        CURRENT(70213);
 
         private final int bitcoinProtocol;
 

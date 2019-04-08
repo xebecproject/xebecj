@@ -5,7 +5,7 @@
     <parent>
         <artifactId>dashj-parent</artifactId>
         <groupId>org.dashj</groupId>
-        <version>0.15-SNAPSHOT</version>
+        <version>0.15.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -374,7 +374,7 @@
                 <platform>windows-x86_64</platform>
                 <build.type>debug</build.type>
                 <cmake.classifier>windows-x86_64</cmake.classifier>
-                <cmake.generator>Visual Studio 14 2015</cmake.generator>
+                <cmake.generator>MinGW Makefiles</cmake.generator>
                 <cmake.options>-Ax64</cmake.options>
                 <cmake.config>${build.type}</cmake.config>
             </properties>
@@ -395,7 +395,7 @@
                 <platform>windows-x86_64</platform>
                 <build.type>release</build.type>
                 <cmake.classifier>windows-x86_64</cmake.classifier>
-                <cmake.generator>Visual Studio 14 2015</cmake.generator>
+                <cmake.generator>MinGW Makefiles</cmake.generator>
                 <cmake.options>-Ax64</cmake.options>
                 <cmake.config>${build.type}</cmake.config>
             </properties>
@@ -515,6 +515,28 @@
                 <classifier/>
             </properties>
         </profile>
+            <profile>
+                <id>no-build-bls</id>
+                <build>
+                    <plugins>
+                        <plugin>
+                            <groupId>com.googlecode.cmake-maven-project</groupId>
+                            <artifactId>cmake-maven-plugin</artifactId>
+                            <version>3.7.2-b1</version>
+                            <executions>
+                                <execution>
+                                    <id>cmake-generate</id> <!-- here there must be the same identifier as defined in <build><plugins> section -->
+                                    <phase>none</phase> <!-- this disables plugin -->
+                                </execution>
+                                <execution>
+                                    <id>cmake-compile</id> <!-- here there must be the same identifier as defined in <build><plugins> section -->
+                                    <phase>none</phase> <!-- this disables plugin -->
+                                </execution>
+                            </executions>
+                        </plugin>
+                    </plugins>
+                </build>
+            </profile>
     </profiles>
 
 </project>

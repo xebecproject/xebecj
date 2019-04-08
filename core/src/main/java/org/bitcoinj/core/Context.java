@@ -14,6 +14,7 @@
 
 package org.bitcoinj.core;
 
+import javax.annotation.Nullable;
 import org.bitcoinj.core.listeners.BlockChainListener;
 import org.bitcoinj.core.listeners.NewBestBlockListener;
 import org.bitcoinj.evolution.EvolutionUserManager;
@@ -23,10 +24,9 @@ import org.bitcoinj.governance.GovernanceTriggerManager;
 import org.bitcoinj.governance.VoteConfidenceTable;
 import org.bitcoinj.store.FlatDB;
 import org.bitcoinj.store.HashStore;
-import org.darkcoinj.DarkSendPool;
-import org.darkcoinj.InstantSend;
 import org.slf4j.*;
 
+import java.util.EnumSet;
 import java.util.List;
 
 import static com.google.common.base.Preconditions.*;
@@ -216,6 +216,10 @@ public class Context {
     //
     private boolean initializedDash = false;
     public void initDash(boolean liteMode, boolean allowInstantX) {
+        initDash(liteMode, allowInstantX, null);
+    }
+
+    public void initDash(boolean liteMode, boolean allowInstantX, @Nullable EnumSet<MasternodeSync.SYNC_FLAGS> syncFlags) {
         this.liteMode = liteMode;//liteMode; --TODO: currently only lite mode has been tested and works with 12.1
         this.allowInstantX = allowInstantX;
 
@@ -223,7 +227,7 @@ public class Context {
         sporkManager = new SporkManager(this);
 
         masternodePayments = new MasternodePayments(this);
-        masternodeSync = new MasternodeSync(this);
+        masternodeSync = syncFlags != null ? new MasternodeSync(this, syncFlags) : new MasternodeSync(this);
         activeMasternode = new ActiveMasternode(this);
         darkSendPool = new DarkSendPool(this);
         instantSend = new InstantSend(this);
@@ -235,7 +239,6 @@ public class Context {
         netFullfilledRequestManager = new NetFullfilledRequestManager(this);
         evoUserManager = new EvolutionUserManager(this);
         masternodeListManager = new SimplifiedMasternodeListManager(this);
-
     }
 
     public void closeDash() {
@@ -267,7 +270,7 @@ public class Context {
 
         success = evdb.load(evoUserManager);
 
-        FlatDB<SimplifiedMasternodeListManager> smnl = new FlatDB<SimplifiedMasternodeListManager>(directory, "mnlist.dat", "magicMNListCache");
+        FlatDB<SimplifiedMasternodeListManager> smnl = new FlatDB<SimplifiedMasternodeListManager>(this, directory, false);
 
         success = smnl.load(masternodeListManager);
 
@@ -283,12 +286,13 @@ public class Context {
         hashStore = new HashStore(chain.getBlockStore());
         chain.addNewBestBlockListener(newBestBlockListener);
         if(initializedDash) {
-            sporkManager.setBlockChain(chain);
+            sporkManager.setBlockChain(chain, peerGroup);
             masternodeManager.setBlockChain(chain);
             masternodeSync.setBlockChain(chain);
             instantSend.setBlockChain(chain);
             masternodeListManager.setBlockChain(chain, peerGroup);
             chain.addTransactionReceivedListener(evoUserManager);
+            updatedChainHead(chain.getChainHead());
         }
         params.setDIPActiveAtTip(chain.getBestChainHeight() >= params.getDIP0001BlockHeight());
     }

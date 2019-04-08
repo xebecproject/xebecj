@@ -1979,7 +1979,7 @@ public class MasternodeManager extends AbstractManager {
     void updatedBlockTip(StoredBlock block)
     {
         nCachedBlockHeight = block.getHeight();
-        if(tipCount++ % 10 == 0)
+        if(tipCount++ % 100 == 0)
             log.info("masternode--CMasternodeMan::UpdatedBlockTip -- nCachedBlockHeight={}", nCachedBlockHeight);
 
         checkSameAddr();
@@ -2062,4 +2062,16 @@ public class MasternodeManager extends AbstractManager {
         }
     }
 
+    public List<Masternode> getMasternodes() {
+        lock.lock();
+        try {
+            List<Masternode> masternodeList = new ArrayList<Masternode>(mapMasternodes.size());
+            for (Map.Entry<TransactionOutPoint, Masternode> entry : mapMasternodes.entrySet()) {
+                masternodeList.add(entry.getValue());
+            }
+            return masternodeList;
+        } finally {
+            lock.unlock();
+        }
+    }
 }

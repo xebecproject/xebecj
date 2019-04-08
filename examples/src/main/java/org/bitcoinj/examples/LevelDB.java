@@ -40,7 +40,7 @@ public class LevelDB {
         PeerGroup vPeerGroup = new PeerGroup(MainNetParams.get(), vChain);
         vPeerGroup.setUseLocalhostPeerWhenPossible(true);
         vPeerGroup.addAddress(InetAddress.getLocalHost());
-
+        vPeerGroup.addAddress(InetAddress.getByName("188.226.228.88"));
         vPeerGroup.start();
         vPeerGroup.downloadBlockChain();
     }

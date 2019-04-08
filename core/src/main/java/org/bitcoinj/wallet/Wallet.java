@@ -41,6 +41,7 @@ import org.bitcoinj.wallet.listeners.WalletCoinsReceivedEventListener;
 import org.bitcoinj.wallet.listeners.WalletCoinsSentEventListener;
 import org.bitcoinj.wallet.listeners.WalletEventListener;
 import org.bitcoinj.wallet.listeners.WalletReorganizeEventListener;
+import org.bitcoinj.core.InstantSend;
 import org.slf4j.*;
 import org.spongycastle.crypto.params.*;
 
@@ -342,8 +343,15 @@ public class Wallet extends BaseTaggableObject
                     }
                 } else if(reason == ChangeReason.IX_TYPE &&
                         confidence.getIXType() == TransactionConfidence.IXType.IX_LOCKED) {
-                    //save the wallet when an InstantSend transaction is locked
-                    saveLater();
+                    lock.lock();
+                    try {
+                        Transaction tx = getTransaction(confidence.getTransactionHash());
+                        queueOnTransactionConfidenceChanged(tx);
+                        //save the wallet when an InstantSend transaction is locked
+                        saveLater();
+                    } finally {
+                         lock.unlock();;
+                    }
                 }
             }
         };
@@ -808,7 +816,7 @@ public class Wallet extends BaseTaggableObject
     /**
      * Returns whether this wallet consists entirely of watching keys (unencrypted keys with no private part). Mixed
      * wallets are forbidden.
-     * 
+     *
      * @throws IllegalStateException
      *             if there are no keys, or if there is a mix between watching and non-watching keys.
      */
@@ -2008,9 +2016,6 @@ public class Wallet extends BaseTaggableObject
             // Mark the tx as appearing in this block so we can find it later after a re-org. This also tells the tx
             // confidence object about the block and sets its depth appropriately.
             tx.setBlockAppearance(block, bestChain, relativityOffset);
-            //added for Dash
-            if(context.instantSend != null) //Check for unit tests
-                context.instantSend.syncTransaction(tx, block);
             if (bestChain) {
                 // Don't notify this tx of work done in notifyNewBestBlock which will be called immediately after
                 // this method has been called by BlockChain for all relevant transactions. Otherwise we'd double
@@ -2497,7 +2502,8 @@ public class Wallet extends BaseTaggableObject
                 // Add to the pending pool and schedule confidence listener notifications.
                 log.info("->pending: {}", tx.getHashAsString());
                 tx.getConfidence().setConfidenceType(ConfidenceType.PENDING);
-                if(tx instanceof TransactionLockRequest) //TODO:InstantX - may need to adjust the ones above too?
+                if(tx instanceof TransactionLockRequest ||
+                        (InstantSend.canAutoLock() && tx.isSimple())) //TODO:InstantX - may need to adjust the ones above too?
                     tx.getConfidence().setIXType(IXType.IX_REQUEST);//setConfidenceType(ConfidenceType.INSTANTX_PENDING);
                 //else tx.getConfidence().setConfidenceType(ConfidenceType.PENDING);
                 confidenceChanged.put(tx, TransactionConfidence.Listener.ChangeReason.TYPE);
@@ -2530,7 +2536,7 @@ public class Wallet extends BaseTaggableObject
 
             //Dash Specific
             if(tx.getConfidence().isIX() && tx.getConfidence().getSource() == Source.SELF) {
-                context.instantSend.processTxLockRequest((TransactionLockRequest)tx);
+                context.instantSend.processTxLockRequest(tx);
             }
 
             informConfidenceListenersIfNotReorganizing();
@@ -4157,7 +4163,7 @@ public class Wallet extends BaseTaggableObject
         if (ensureMinRequiredFee && fee.compareTo(params.isDIP0001ActiveAtTip() ? Transaction.REFERENCE_DEFAULT_MIN_TX_FEE.div(10) : Transaction.REFERENCE_DEFAULT_MIN_TX_FEE) < 0)
             fee = params.isDIP0001ActiveAtTip() ? Transaction.REFERENCE_DEFAULT_MIN_TX_FEE.div(10) : Transaction.REFERENCE_DEFAULT_MIN_TX_FEE;
         if(useInstantSend)
-            fee = TransactionLockRequest.MIN_FEE.multiply(tx.getInputs().size());
+            fee = TransactionLockRequest.MIN_FEE.multiply(tx.getInputs().size()).div(params.isDIP0001ActiveAtTip() ? 10 : 1);
         TransactionOutput output = tx.getOutput(0);
         output.setValue(output.getValue().subtract(fee));
         return !output.isDust();
@@ -4713,10 +4719,10 @@ public class Wallet extends BaseTaggableObject
      * <p>Gets a bloom filter that contains all of the public keys from this wallet, and which will provide the given
      * false-positive rate if it has size elements. Keep in mind that you will get 2 elements in the bloom filter for
      * each key in the wallet, for the public key and the hash of the public key (address form).</p>
-     * 
+     *
      * <p>This is used to generate a BloomFilter which can be {@link BloomFilter#merge(BloomFilter)}d with another.
      * It could also be used if you have a specific target for the filter's size.</p>
-     * 
+     *
      * <p>See the docs for {@link BloomFilter(int, double)} for a brief explanation of anonymity when using bloom
      * filters.</p>
      */
@@ -5153,7 +5159,7 @@ public class Wallet extends BaseTaggableObject
             //Dash Specific
             if(tx.getConfidence().isIX() && tx.getConfidence().getSource() == Source.SELF) {
                 //This transaction was stuck and we need to track it once again with InstantSend
-                context.instantSend.processTxLockRequest((TransactionLockRequest)tx);
+                context.instantSend.processTxLockRequest(tx);
             }
             checkState(confidenceType == ConfidenceType.PENDING || confidenceType == ConfidenceType.IN_CONFLICT,
                     "Expected PENDING or IN_CONFLICT, was %s.", confidenceType);
