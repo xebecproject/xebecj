@@ -481,8 +481,16 @@ public class EvolutionUserManager extends AbstractManager implements Transaction
      * Removes the given event listener object. Returns true if the listener was removed, false if that listener
      * was never added.
      */
-    public boolean removeEventListener(EvolutionUserAddedEventListener listener) {
+    public boolean removeUserRemovedListener(EvolutionUserAddedEventListener listener) {
         return ListenerRegistration.removeFromList(listener, userAddedListeners);
+    }
+
+    /**
+     * Removes the given event listener object. Returns true if the listener was removed, false if that listener
+     * was never added.
+     */
+    public boolean removeUserRemovedListener(EvolutionUserRemovedEventListener listener) {
+        return ListenerRegistration.removeFromList(listener, userRemovedListeners);
     }
 
     public void queueOnUserAdded(final EvolutionUser user) {
