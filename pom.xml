@@ -4,14 +4,13 @@
 
   <groupId>org.dashj</groupId>
   <artifactId>dashj-parent</artifactId>
-  <version>0.16.1</version>
+  <version>0.16.1-20190709</version>
   <packaging>pom</packaging>
 
   <modules>
     <module>core</module>
     <module>examples</module>
     <module>tools</module>
-    <module>wallettemplate</module>
     <module>bls</module>
   </modules>
 
