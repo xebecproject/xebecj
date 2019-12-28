@@ -71,7 +71,7 @@ public class MainNetParams extends AbstractBitcoinNetParams {
         //CoinDefinition.initCheckpoints(checkpoints);
 
         dnsSeeds = new String[] {
-                "dnsseed.dash.org"
+                "dnsseed.xebec.site"
         };
 
         httpSeeds = null; /*new HttpDiscovery.Details[] {*/
@@ -80,27 +80,10 @@ public class MainNetParams extends AbstractBitcoinNetParams {
         // transactions are handled. Duplicated transactions could occur in the case where a coinbase had the same
         // extraNonce and the same outputs but appeared at different heights, and greatly complicated re-org handling.
         // Having these here simplifies block connection logic considerably.
-        checkpoints.put(  1500, Sha256Hash.wrap("000000aaf0300f59f49bc3e970bad15c11f961fe2347accffff19d96ec9778e3"));
-        checkpoints.put(  4991, Sha256Hash.wrap("000000003b01809551952460744d5dbb8fcbd6cbae3c220267bf7fa43f837367"));
-        checkpoints.put(  9918, Sha256Hash.wrap("00000000213e229f332c0ffbe34defdaa9e74de87f2d8d1f01af8d121c3c170b"));
-        checkpoints.put( 16912, Sha256Hash.wrap("00000000075c0d10371d55a60634da70f197548dbbfa4123e12abfcbc5738af9"));
-        checkpoints.put( 23912, Sha256Hash.wrap("0000000000335eac6703f3b1732ec8b2f89c3ba3a7889e5767b090556bb9a276"));
-        checkpoints.put( 35457, Sha256Hash.wrap("0000000000b0ae211be59b048df14820475ad0dd53b9ff83b010f71a77342d9f"));
-        checkpoints.put( 45479, Sha256Hash.wrap("000000000063d411655d590590e16960f15ceea4257122ac430c6fbe39fbf02d"));
-        checkpoints.put( 55895, Sha256Hash.wrap("0000000000ae4c53a43639a4ca027282f69da9c67ba951768a20415b6439a2d7"));
-        checkpoints.put( 68899, Sha256Hash.wrap("0000000000194ab4d3d9eeb1f2f792f21bb39ff767cb547fe977640f969d77b7"));
-        checkpoints.put( 74619, Sha256Hash.wrap("000000000011d28f38f05d01650a502cc3f4d0e793fbc26e2a2ca71f07dc3842"));
-        checkpoints.put( 75095, Sha256Hash.wrap("0000000000193d12f6ad352a9996ee58ef8bdc4946818a5fec5ce99c11b87f0d"));
-        checkpoints.put( 88805, Sha256Hash.wrap("00000000001392f1652e9bf45cd8bc79dc60fe935277cd11538565b4a94fa85f"));
-        checkpoints.put( 107996, Sha256Hash.wrap("00000000000a23840ac16115407488267aa3da2b9bc843e301185b7d17e4dc40"));
-        checkpoints.put( 137993, Sha256Hash.wrap("00000000000cf69ce152b1bffdeddc59188d7a80879210d6e5c9503011929c3c"));
-        checkpoints.put( 167996, Sha256Hash.wrap("000000000009486020a80f7f2cc065342b0c2fb59af5e090cd813dba68ab0fed"));
-        checkpoints.put( 207992, Sha256Hash.wrap("00000000000d85c22be098f74576ef00b7aa00c05777e966aff68a270f1e01a5"));
-        checkpoints.put( 312645, Sha256Hash.wrap("0000000000059dcb71ad35a9e40526c44e7aae6c99169a9e7017b7d84b1c2daf"));
-        checkpoints.put( 407452, Sha256Hash.wrap("000000000003c6a87e73623b9d70af7cd908ae22fee466063e4ffc20be1d2dbc"));
-        checkpoints.put( 523412, Sha256Hash.wrap("000000000000e54f036576a10597e0e42cc22a5159ce572f999c33975e121d4d"));
-        checkpoints.put( 523930, Sha256Hash.wrap("0000000000000bccdb11c2b1cfb0ecab452abf267d89b7f46eaf2d54ce6e652c"));
-        checkpoints.put(1028181, Sha256Hash.wrap("000000000000004534fd030e18578a987b443b9289a5e2de9fe18505f5fb0295"));
+        checkpoints.put(  1, Sha256Hash.wrap("0000042e8a528c958c14eb192729b4e1ad72c574131f74025413514b1f2bcf45"));
+        checkpoints.put(  10, Sha256Hash.wrap("000004de8465ca3858d90f116330aa13839cdd1b744c08da635a88a365d507c1"));
+        checkpoints.put(  700, Sha256Hash.wrap("0000033e08a2fda184ae2e17342eba2448673001f53cda965d161e49696a1e11"));
+
 /*
 
         dnsSeeds = new String[] {
@@ -399,14 +382,14 @@ public class MainNetParams extends AbstractBitcoinNetParams {
                 0x1e3be7de
         };
 
-        strSporkAddress = "Xgtyuk76vhuFW2iT7UAiHgNdWXCf3J34wh";
+        strSporkAddress = "XoiKMBUSeGcQwed1uiVupUrwUZZHHtQxPs";
         budgetPaymentsStartBlock = 328008;
         budgetPaymentsCycleBlocks = 16616;
         budgetPaymentsWindowBlocks = 100;
 
         DIP0001Window = MAINNET_MAJORITY_DIP0001_WINDOW;
         DIP0001Upgrade = MAINNET_MAJORITY_DIP0001_THRESHOLD;
-        DIP0001BlockHeight = 782208;
+        DIP0001BlockHeight = 30;
 
         fulfilledRequestExpireTime = 60*60;
         masternodeMinimumConfirmations = 15;
@@ -415,16 +398,16 @@ public class MainNetParams extends AbstractBitcoinNetParams {
         nGovernanceMinQuorum = 10;
         nGovernanceFilterElements = 20000;
 
-        powDGWHeight = 34140;
-        powKGWHeight = 15200;
+        powDGWHeight = 6;
+        powKGWHeight = 7;
         powAllowMinimumDifficulty = false;
         powNoRetargeting = false;
 
         instantSendConfirmationsRequired = 6;
         instantSendKeepLock = 24;
 
-        DIP0003BlockHeight = 1028160;
-        deterministicMasternodesEnabledHeight = 1047200;
+        DIP0003BlockHeight = 40;
+        deterministicMasternodesEnabledHeight = 40;
         deterministicMasternodesEnabled = true;
 
         DIP0008BlockHeight = 1088640;
@@ -437,7 +420,7 @@ public class MainNetParams extends AbstractBitcoinNetParams {
         llmqChainLocks = LLMQParameters.LLMQType.LLMQ_400_60;
         llmqForInstantSend = LLMQParameters.LLMQType.LLMQ_50_60;
 
-        BIP65Height = 619382; // 00000000000076d8fcea02ec0963de4abfd01e771fec0863f960c2c64fe6f357
+        BIP65Height = 5; // 00000000000076d8fcea02ec0963de4abfd01e771fec0863f960c2c64fe6f357
     }
 
     private static MainNetParams instance;
