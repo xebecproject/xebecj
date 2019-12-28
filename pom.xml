@@ -23,14 +23,14 @@
 
 
   <scm>
-    <connection>scm:git:https://github.com/HashEngineering/darkcoinj</connection>
-    <developerConnection>scm:git:https://github.com/HashEngineering/darkcoinj</developerConnection>
-    <url>scm:git:https://github.com/bitcoinj/darkcoinj</url>
+    <connection>scm:git:https://github.com/xebecproject/xebecj</connection>
+    <developerConnection>scm:git:https://github.com/xebecproject/xebecj</developerConnection>
+    <url>scm:git:https://github.com/bitcoinj/xebecj</url>
   </scm>
 
-  <name>dashj Parent</name>
-  <description>Provides the common configuration for the dashj modules</description>
-  <url>http://dash.org/dashj/</url>
+  <name>xebecj Parent</name>
+  <description>Provides the common configuration for the xebecj modules</description>
+  <url>http://xebec.site/xebecj/</url>
 
   <licenses>
     <license>
@@ -43,7 +43,7 @@
 
   <issueManagement>
     <system>GitHub</system>
-    <url>https://github.com/HashEngineering/dashj/issues</url>
+    <url>https://github.com/xebecproject/xebecj/issues</url>
   </issueManagement>
 
   <mailingLists>
@@ -57,8 +57,8 @@
 
     <repository>
       <id>central</id>
-      <name>dash-Dashj</name>
-      <url>https://api.bintray.com/maven/dash/Dashj/org.dashj/;publish=1</url>
+      <name>xebec-Xebecj</name>
+      <url>https://api.bintray.com/maven/xebec/Xebecj/org.xebecj/;publish=1</url>
     </repository>
 
     <snapshotRepository>
@@ -153,7 +153,7 @@
         <artifactId>slf4j-api</artifactId>
         <version>1.7.20</version>
       </dependency>
-      <!-- dashj consumers are expected to provide their own SLF4J adapters
+      <!-- xebecj consumers are expected to provide their own SLF4J adapters
     such as logback, slf4j-log4j12, slf4j-jcl and so on
     see http://www.slf4j.org/faq.html -->
       <dependency>

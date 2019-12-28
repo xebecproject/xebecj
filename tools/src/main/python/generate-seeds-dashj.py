@@ -130,11 +130,11 @@ def main():
     g.write(' */\n')
     g.write('\n    //MainNetParams\n')
     with open(os.path.join(indir,'nodes_main.txt'),'r') as f:
-        process_nodes(g, f, 'pn_Seed6_main ', 9999)
+        process_nodes(g, f, 'pn_Seed6_main ', 27270)
     g.write('\n')
     g.write('    //TestNetParams\n')
     with open(os.path.join(indir,'nodes_test.txt'),'r') as f:
-        process_nodes(g, f, 'pnSeed6_test', 19999)
+        process_nodes(g, f, 'pnSeed6_test', 27271)
 
 if __name__ == '__main__':
     main()

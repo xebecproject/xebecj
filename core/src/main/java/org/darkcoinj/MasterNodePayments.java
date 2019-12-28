@@ -22,7 +22,7 @@ public class MasterNodePayments {
     boolean enabled;
 
     MasterNodePayments() {
-        strMainPubKey = "04549ac134f694c0243f503e8c8a9a986f5de6610049c40b07816809b0d1d06a21b07be27b9bb555931773f62ba6cf35a25fd52f694d4e1106ccd237a7bb899fdd";
+        strMainPubKey = "0467004605d9b40e006c157e82ac994e530e15b1acfc9252460d3c0e149792cbb5f24399def0345cfa6fa3aa4c5bd5c0ef586a39abc92b918d2c5ec39cd6b96943";
         strTestPubKey = "046f78dcf911fbd61910136f7f0f8d90578f68d0b3ac973b5040fb7afb501b5939f39b108b0569dca71488f5bbf498d92e4d1194f6f941307ffd95f75e76869f0e";
         enabled = false;
     }

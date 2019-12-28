@@ -168,11 +168,11 @@ public abstract class NetworkParameters {
             // A script containing the difficulty bits and the following message:
             //
             //   coin dependent
-            byte[] bytes = Utils.HEX.decode(CoinDefinition.genesisTxInBytes);
+          //  byte[] bytes = Utils.HEX.decode(CoinDefinition.genesisTxInBytes);
 
-            t.addInput(new TransactionInput(n, t, bytes));
+            t.addInput(new TransactionInput(n, t));
             ByteArrayOutputStream scriptPubKeyBytes = new ByteArrayOutputStream();
-            Script.writeBytes(scriptPubKeyBytes, Utils.HEX.decode(CoinDefinition.genesisTxOutBytes));
+          //  Script.writeBytes(scriptPubKeyBytes, Utils.HEX.decode(CoinDefinition.genesisTxOutBytes));
 
             scriptPubKeyBytes.write(ScriptOpCodes.OP_CHECKSIG);
             t.addOutput(new TransactionOutput(n, t, Coin.valueOf(CoinDefinition.genesisBlockValue, 0), scriptPubKeyBytes.toByteArray()));
@@ -222,8 +222,8 @@ public abstract class NetworkParameters {
 
 
 
-    public static final int TARGET_TIMESPAN = CoinDefinition.TARGET_TIMESPAN;//14 * 24 * 60 * 60;  // 2 weeks per difficulty cycle, on average.
-    public static final int TARGET_SPACING = CoinDefinition.TARGET_SPACING;// 10 * 60;  // 10 minutes per block.
+    public static final int TARGET_TIMESPAN = CoinDefinition.TARGET_TIMESPAN;//7200;  
+    public static final int TARGET_SPACING = CoinDefinition.TARGET_SPACING;//  60; 
     public static final int INTERVAL = CoinDefinition.INTERVAL;//TARGET_TIMESPAN / TARGET_SPACING;
     
     /**
