@@ -2,8 +2,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.dashj</groupId>
-  <artifactId>dashj-parent</artifactId>
+  <groupId>site.xebecj</groupId>
+  <artifactId>xebecj-parent</artifactId>
   <version>0.16.3</version>
   <packaging>pom</packaging>
 
@@ -48,8 +48,8 @@
 
   <mailingLists>
     <mailingList>
-      <name>darkcoinj Google Group</name>
-      <post>https://groups.google.com/forum/#!forum/darkcoinj</post>
+      <name>xebecj Google Group</name>
+      <post>https://groups.google.com/forum/#!forum/xebecj</post>
     </mailingList>
   </mailingLists>
 
@@ -58,7 +58,7 @@
     <repository>
       <id>central</id>
       <name>xebec-Xebecj</name>
-      <url>https://api.bintray.com/maven/xebec/Xebecj/org.xebecj/;publish=1</url>
+      <url>https://api.bintray.com/maven/xebec/Xebecj/site.xebecj/;publish=1</url>
     </repository>
 
     <snapshotRepository>
