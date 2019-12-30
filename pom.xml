@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>site.xebecj</groupId>
+  <groupId>org.xebecj</groupId>
   <artifactId>xebecj-parent</artifactId>
   <version>0.16.3</version>
   <packaging>pom</packaging>
@@ -57,7 +57,7 @@
 
     <repository>
       <id>central</id>
-      <name>xebec-Xebecj</name>
+      <name>xebecproject</name>
       <url>https://api.bintray.com/maven/xebec/Xebecj/site.xebecj/;publish=1</url>
     </repository>
 
