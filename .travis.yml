@@ -1,4 +1,4 @@
-# configuration for https://travis-ci.org/HashEngineering/dashj
+# configuration for https://travis-ci.org/HashEngineering/xebecj
 sudo: false
 dist: trusty
 language: java

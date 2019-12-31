@@ -48,7 +48,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.base.Preconditions.checkState;
 
 /**
- * <p>Utility class that wraps the boilerplate needed to set up a new full verification dashj app. Instantiate it with a directory
+ * <p>Utility class that wraps the boilerplate needed to set up a new full verification xebecj app. Instantiate it with a directory
  * and file prefix, optionally configure a few things, then use startAsync and optionally awaitRunning. The object will
  * construct and configure a {@link FullPrunedBlockChain}, {@link FullPrunedBlockStore}, {@link Wallet} and {@link PeerGroup}. Depending
  * on the value of the blockingStartup property, startup will be considered complete once the block chain has fully

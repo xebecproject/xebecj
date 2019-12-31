@@ -28,7 +28,7 @@ public class DownloadBlocks {
         for (String hash : new String[]{
                 "0000000000000011fbdfb7ebea7b3b68c11c82f68fe792e4a376f0f3e1ebfee5",
                 "000000000000001b7c5666cbda73912a5bcff8fc179fdd421fc9bfe7b7e7be73",
-                "000000000000000cdf5cc24c3beb0669b31e942d1301e07b53d6f0c7db10860d", // <<<<< doesn't work with dashj-0.13 branch
+                "000000000000000cdf5cc24c3beb0669b31e942d1301e07b53d6f0c7db10860d", // <<<<< doesn't work with xebecj-0.13 branch
         }) {
 
             Sha256Hash blockHash = Sha256Hash.wrap(hash);

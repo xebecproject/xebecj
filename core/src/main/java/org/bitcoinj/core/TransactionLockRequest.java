@@ -74,7 +74,7 @@ public class TransactionLockRequest extends Transaction {
             log.info("instantsend--CTxLockRequest::IsValid -- WARNING: Too many inputs: tx=", toString());
         }
 
-        //Ideally, a dashj node is always fully synced, but if it isn't
+        //Ideally, a xebecj node is always fully synced, but if it isn't
         //then this code below will not allow a lock request for this transaction.
         //Therefore, let us skip this check and rely on lock votes.
 

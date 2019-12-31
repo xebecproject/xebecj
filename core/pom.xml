@@ -15,20 +15,18 @@
   ~ limitations under the License.
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.dashj</groupId>
-        <artifactId>dashj-parent</artifactId>
+        <groupId>org.xebecj</groupId>
+        <artifactId>xebecj-parent</artifactId>
         <version>0.16.3</version>
     </parent>
 
-    <artifactId>dashj-core</artifactId>
+    <artifactId>xebecj-core</artifactId>
 
-    <name>dashj</name>
-    <description>A Java Dash library</description>
+    <name>xebecj</name>
+    <description>A Java Xebec library</description>
 
     <packaging>jar</packaging>
 
@@ -71,14 +69,14 @@
                                     <tasks>
                                         <path id="proto.path">
                                             <fileset dir="src">
-                                                <include name="**/*.proto"/>
+                                                <include name="**/*.proto" />
                                             </fileset>
                                         </path>
-                                        <pathconvert pathsep=" " property="proto.files" refid="proto.path"/>
+                                        <pathconvert pathsep=" " property="proto.files" refid="proto.path" />
                                         <exec executable="protoc" failonerror="true">
-                                            <arg value="--java_out=${project.basedir}/src/main/java"/>
-                                            <arg value="-I${project.basedir}/src"/>
-                                            <arg line="${proto.files}"/>
+                                            <arg value="--java_out=${project.basedir}/src/main/java" />
+                                            <arg value="-I${project.basedir}/src" />
+                                            <arg line="${proto.files}" />
                                         </exec>
                                     </tasks>
                                 </configuration>
@@ -147,11 +145,11 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <detectLinks/>
+                    <detectLinks />
                     <links>
                         <link>http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/</link>
                     </links>
-                    <detectJavaApiLink/>
+                    <detectJavaApiLink />
                     <quiet>true</quiet>
                 </configuration>
             </plugin>
@@ -171,7 +169,7 @@
                         </goals>
                         <configuration>
                             <rules>
-                                <DependencyConvergence/>
+                                <DependencyConvergence />
                                 <digestRule implementation="uk.co.froot.maven.enforcer.DigestRule">
 
                                     <!-- Create a snapshot to build the list of URNs below -->
@@ -346,8 +344,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.dashj</groupId>
-            <artifactId>dashj-bls</artifactId>
+            <groupId>org.xebecj</groupId>
+            <artifactId>xebecj-bls</artifactId>
             <version>0.16.3</version>
         </dependency>
         <dependency>
@@ -362,7 +360,7 @@
             <version>3.2</version>
             <scope>test</scope>
         </dependency>
-        <!-- dashj consumers are expected to provide their own SLF4J adapters
+        <!-- xebecj consumers are expected to provide their own SLF4J adapters
              such as logback, slf4j-log4j12, slf4j-jcl and so on
              see http://www.slf4j.org/faq.html -->
         <dependency>

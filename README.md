@@ -2,7 +2,7 @@
 
 > A Java library for working with Xebec
 
-[![Build Status](https://travis-ci.com/dashevo/dashj.svg?token=Pzix7aqnMuGS9c6BmBz2&branch=master)](https://travis-ci.com/dashevo/dashj)
+[![Build Status](https://travis-ci.com/dashevo/xebecj.svg?token=Pzix7aqnMuGS9c6BmBz2&branch=master)](https://travis-ci.com/dashevo/xebecj)
 
 ### Welcome to xebecj
 
@@ -61,7 +61,7 @@ If you send coins to that address, it will forward them on to the address you sp
 
 ```
   cd examples
-  mvn exec:java -Dexec.mainClass=org.dashj.examples.ForwardingService -Dexec.args="<insert a xebec address here>"
+  mvn exec:java -Dexec.mainClass=org.xebecj.examples.ForwardingService -Dexec.args="<insert a xebec address here>"
 ```
 
 Note that this example app *does not use checkpointing*, so the initial chain sync will be pretty slow. You can make an app that starts up and does the initial sync much faster by including a checkpoints file; see the documentation for

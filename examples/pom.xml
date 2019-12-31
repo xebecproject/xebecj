@@ -15,25 +15,23 @@
   ~ limitations under the License.
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <groupId>org.dashj</groupId>
-        <artifactId>dashj-parent</artifactId>
+        <groupId>org.xebecj</groupId>
+        <artifactId>xebecj-parent</artifactId>
         <version>0.16.3</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>dashj-examples</artifactId>
+    <artifactId>xebecj-examples</artifactId>
 
-    <name>dashj Examples</name>
-    <description>A collection of examples using the dashj library</description>
+    <name>xebecj Examples</name>
+    <description>A collection of examples using the xebecj library</description>
 
     <dependencies>
         <dependency>
-            <groupId>org.dashj</groupId>
-            <artifactId>dashj-core</artifactId>
+            <groupId>org.xebecj</groupId>
+            <artifactId>xebecj-core</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <dependency>

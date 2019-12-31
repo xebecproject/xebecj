@@ -25,7 +25,7 @@ import org.bitcoinj.governance.VoteConfidenceTable;
 import org.bitcoinj.quorums.*;
 import org.bitcoinj.store.FlatDB;
 import org.bitcoinj.store.HashStore;
-import org.dashj.bls.BLS;
+import org.xebecj.bls.BLS;
 import org.slf4j.*;
 
 import java.util.EnumSet;

@@ -1,5 +1,5 @@
 #DIP's in DashJ
-The following DIPs are supported by dashj
+The following DIPs are supported by xebecj
 
 DIP0001 - Initial Scaling of the Network
 https://github.com/dashpay/dips/blob/master/dip-0001.md

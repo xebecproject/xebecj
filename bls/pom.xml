@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>dashj-parent</artifactId>
-        <groupId>org.dashj</groupId>
+        <artifactId>xebecj-parent</artifactId>
+        <groupId>org.xebecj</groupId>
         <version>0.16.3</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>dashj-bls</artifactId>
+    <artifactId>xebecj-bls</artifactId>
 
     <build>
         <plugins>
@@ -112,11 +110,11 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <detectLinks/>
+                    <detectLinks />
                     <links>
                         <link>http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/</link>
                     </links>
-                    <detectJavaApiLink/>
+                    <detectJavaApiLink />
                     <quiet>true</quiet>
                 </configuration>
             </plugin>
@@ -136,7 +134,7 @@
                         </goals>
                         <configuration>
                             <rules>
-                                <DependencyConvergence/>
+                                <DependencyConvergence />
                                 <digestRule implementation="uk.co.froot.maven.enforcer.DigestRule">
 
                                     <!-- Create a snapshot to build the list of URNs below -->
@@ -319,9 +317,9 @@
                                         <echo>* linux-x86_64-release</echo>
                                         <echo>* mac-x86_64-debug</echo>
                                         <echo>* mac-x86_64-release</echo>
-                                        <echo/>
+                                        <echo />
                                         <echo>For instance: mvn -Pwindows-x86_32-debug install</echo>
-                                        <fail/>
+                                        <fail />
                                     </tasks>
                                 </configuration>
                             </execution>
@@ -512,7 +510,7 @@
             <properties>
                 <platform>portable</platform>
                 <build.type>release</build.type>
-                <classifier/>
+                <classifier />
             </properties>
         </profile>
             <profile>

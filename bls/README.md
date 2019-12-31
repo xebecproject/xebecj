@@ -1,5 +1,5 @@
-# dashj-bls
-DashJ-BLS is a wrapper for bls-signatures that requires a shared library called dashjbls.
+# xebecj-bls
+DashJ-BLS is a wrapper for bls-signatures that requires a shared library called xebecjbls.
 
 This library builds automatically on Linux with `mvn`.  On Windows, Cmake (https://cmake.org/download/) and MinGW must be installed (http://mingw-w64.org/doku.php/download/mingw-builds)
 
