@@ -17,22 +17,21 @@
  * Version 3.0.12
  */
 
-package org.xebecj.bls;
-
+package io.github.xebecproject.bls;
 
 import com.google.common.base.Preconditions;
 
-public class SignatureVector extends java.util.AbstractList<Signature> {
+public class MessageHashVector extends java.util.AbstractList<byte []> {
   private transient long swigCPtr;
   protected transient boolean swigCMemOwn;
 
-  protected SignatureVector(long cPtr, boolean cMemoryOwn) {
+  protected MessageHashVector(long cPtr, boolean cMemoryOwn) {
     Preconditions.checkArgument(cPtr != 0);
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(SignatureVector obj) {
+  protected static long getCPtr(MessageHashVector obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 
@@ -44,63 +43,69 @@ public class SignatureVector extends java.util.AbstractList<Signature> {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        JNI.delete_SignatureVector(swigCPtr);
+        JNI.delete_ByteArrayVec(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
-  public SignatureVector(java.util.Collection<Signature> e) {
+  MessageHashVector(java.util.Collection<byte[]> e) {
     this.reserve(e.size());
-    for(Signature value: e) {
+    for(byte[] value: e) {
       this.push_back(value);
     }
   }
 
-  public SignatureVector() {
-    this(JNI.new_SignatureVector__SWIG_0(), true);
+  public MessageHashVector() {
+    this(JNI.new_ByteArrayVec__SWIG_0(), true);
   }
 
-  public SignatureVector(SignatureVector o) {
-    this(JNI.new_SignatureVector__SWIG_2(SignatureVector.getCPtr(o), o), true);
+  public MessageHashVector(long n) {
+    this(JNI.new_ByteArrayVec__SWIG_1(n), true);
+  }
+
+  public MessageHashVector(MessageHashVector o) {
+    this(JNI.new_ByteArrayVec__SWIG_2(MessageHashVector.getCPtr(o), o), true);
   }
 
   public long capacity() {
-    return JNI.SignatureVector_capacity(swigCPtr, this);
+    return JNI.ByteArrayVec_capacity(swigCPtr, this);
   }
 
   public void reserve(long n) {
-    JNI.SignatureVector_reserve(swigCPtr, this, n);
+    JNI.ByteArrayVec_reserve(swigCPtr, this, n);
   }
 
   public boolean isEmpty() {
-    return JNI.SignatureVector_isEmpty(swigCPtr, this);
+    return JNI.ByteArrayVec_isEmpty(swigCPtr, this);
   }
 
   public void clear() {
-    JNI.SignatureVector_clear(swigCPtr, this);
+    JNI.ByteArrayVec_clear(swigCPtr, this);
   }
 
-  public void push_back(Signature x) {
-    Preconditions.checkNotNull(x);
-    JNI.SignatureVector_push_back(swigCPtr, this, Signature.getCPtr(x), x);
+  public void push_back(byte [] x) {
+    Preconditions.checkArgument(x.length == BLS.MESSAGE_HASH_LEN);
+    JNI.ByteArrayVec_push_back(swigCPtr, this, x);
   }
 
-  public Signature get(int i) {
-    return new Signature(JNI.SignatureVector_get(swigCPtr, this, i), false);
+  public byte [] get(int i) {
+    return JNI.ByteArrayVec_get(swigCPtr, this, i);
   }
 
-  public Signature set(int i, Signature VECTOR_VALUE_IN) {
-    Preconditions.checkNotNull(VECTOR_VALUE_IN);
-    return new Signature(JNI.SignatureVector_set(swigCPtr, this, i, Signature.getCPtr(VECTOR_VALUE_IN), VECTOR_VALUE_IN), true);
+  public byte [] set(int i, byte [] VECTOR_VALUE_IN) {
+    Preconditions.checkArgument(VECTOR_VALUE_IN.length == BLS.MESSAGE_HASH_LEN);
+    return JNI.ByteArrayVec_set(swigCPtr, this, i, VECTOR_VALUE_IN);
   }
 
   public int size() {
-    return JNI.SignatureVector_size(swigCPtr, this);
+    return JNI.ByteArrayVec_size(swigCPtr, this);
   }
 
   public void removeRange(int from, int to) {
-    JNI.SignatureVector_removeRange(swigCPtr, this, from, to);
+    JNI.ByteArrayVec_removeRange(swigCPtr, this, from, to);
   }
+
+
 
 }

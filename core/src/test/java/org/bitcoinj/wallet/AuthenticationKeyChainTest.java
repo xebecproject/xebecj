@@ -4,9 +4,9 @@ import org.bitcoinj.core.Context;
 import org.bitcoinj.core.KeyId;
 import org.bitcoinj.crypto.*;
 import org.bitcoinj.params.UnitTestParams;
-import org.xebecj.bls.ExtendedPrivateKey;
-import org.xebecj.bls.JNI;
-import org.xebecj.bls.PrivateKey;
+import io.github.xebecproject.bls.ExtendedPrivateKey;
+import io.github.xebecproject.bls.JNI;
+import io.github.xebecproject.bls.PrivateKey;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package org.xebecj.bls;
+package io.github.xebecproject.bls;
 
 /**
  * Created by hashengineering on 11/13/18.

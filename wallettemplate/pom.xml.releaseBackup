@@ -4,12 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.xebecj</groupId>
+        <groupId>io.github.xebecproject</groupId>
         <artifactId>xebecj-parent</artifactId>
         <version>0.16.3-SNAPSHOT</version>
     </parent>
 
-    <groupId>org.xebecj</groupId>
+    <groupId>io.github.xebecproject</groupId>
     <artifactId>wallettemplate</artifactId>
 
     <name>xebecj Wallet-Template</name>
@@ -57,7 +57,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.xebecj</groupId>
+            <groupId>io.github.xebecproject</groupId>
             <artifactId>xebecj-core</artifactId>
             <version>${project.parent.version}</version>
         </dependency>

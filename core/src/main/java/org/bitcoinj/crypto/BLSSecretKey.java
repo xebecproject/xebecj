@@ -3,8 +3,8 @@ package org.bitcoinj.crypto;
 import com.google.common.base.Preconditions;
 import org.bitcoinj.core.ProtocolException;
 import org.bitcoinj.core.Sha256Hash;
-import org.xebecj.bls.PrivateKey;
-import org.xebecj.bls.PrivateKeyVector;
+import io.github.xebecproject.bls.PrivateKey;
+import io.github.xebecproject.bls.PrivateKeyVector;
 
 import java.util.ArrayList;
 

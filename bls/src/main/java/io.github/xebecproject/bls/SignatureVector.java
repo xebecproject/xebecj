@@ -17,22 +17,22 @@
  * Version 3.0.12
  */
 
-package org.xebecj.bls;
+package io.github.xebecproject.bls;
 
 
 import com.google.common.base.Preconditions;
 
-public class AggregationInfoVector extends java.util.AbstractList<AggregationInfo> {
+public class SignatureVector extends java.util.AbstractList<Signature> {
   private transient long swigCPtr;
   protected transient boolean swigCMemOwn;
 
-  protected AggregationInfoVector(long cPtr, boolean cMemoryOwn) {
+  protected SignatureVector(long cPtr, boolean cMemoryOwn) {
     Preconditions.checkArgument(cPtr != 0);
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(AggregationInfoVector obj) {
+  protected static long getCPtr(SignatureVector obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 
@@ -44,64 +44,63 @@ public class AggregationInfoVector extends java.util.AbstractList<AggregationInf
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        JNI.delete_AggregationInfoVector(swigCPtr);
+        JNI.delete_SignatureVector(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
-  public AggregationInfoVector(java.util.Collection<AggregationInfo> e) {
-    Preconditions.checkNotNull(e);
+  public SignatureVector(java.util.Collection<Signature> e) {
     this.reserve(e.size());
-    for(AggregationInfo value: e) {
+    for(Signature value: e) {
       this.push_back(value);
     }
   }
 
-  public AggregationInfoVector() {
-    this(JNI.new_AggregationInfoVector__SWIG_0(), true);
+  public SignatureVector() {
+    this(JNI.new_SignatureVector__SWIG_0(), true);
   }
 
-  public AggregationInfoVector(AggregationInfoVector o) {
-    this(JNI.new_AggregationInfoVector__SWIG_2(AggregationInfoVector.getCPtr(o), o), true);
+  public SignatureVector(SignatureVector o) {
+    this(JNI.new_SignatureVector__SWIG_2(SignatureVector.getCPtr(o), o), true);
   }
 
   public long capacity() {
-    return JNI.AggregationInfoVector_capacity(swigCPtr, this);
+    return JNI.SignatureVector_capacity(swigCPtr, this);
   }
 
   public void reserve(long n) {
-    JNI.AggregationInfoVector_reserve(swigCPtr, this, n);
+    JNI.SignatureVector_reserve(swigCPtr, this, n);
   }
 
   public boolean isEmpty() {
-    return JNI.AggregationInfoVector_isEmpty(swigCPtr, this);
+    return JNI.SignatureVector_isEmpty(swigCPtr, this);
   }
 
   public void clear() {
-    JNI.AggregationInfoVector_clear(swigCPtr, this);
+    JNI.SignatureVector_clear(swigCPtr, this);
   }
 
-  public void push_back(AggregationInfo x) {
+  public void push_back(Signature x) {
     Preconditions.checkNotNull(x);
-    JNI.AggregationInfoVector_push_back(swigCPtr, this, AggregationInfo.getCPtr(x), x);
+    JNI.SignatureVector_push_back(swigCPtr, this, Signature.getCPtr(x), x);
   }
 
-  public AggregationInfo get(int i) {
-    return new AggregationInfo(JNI.AggregationInfoVector_get(swigCPtr, this, i), false);
+  public Signature get(int i) {
+    return new Signature(JNI.SignatureVector_get(swigCPtr, this, i), false);
   }
 
-  public AggregationInfo set(int i, AggregationInfo VECTOR_VALUE_IN) {
+  public Signature set(int i, Signature VECTOR_VALUE_IN) {
     Preconditions.checkNotNull(VECTOR_VALUE_IN);
-    return new AggregationInfo(JNI.AggregationInfoVector_set(swigCPtr, this, i, AggregationInfo.getCPtr(VECTOR_VALUE_IN), VECTOR_VALUE_IN), true);
+    return new Signature(JNI.SignatureVector_set(swigCPtr, this, i, Signature.getCPtr(VECTOR_VALUE_IN), VECTOR_VALUE_IN), true);
   }
 
   public int size() {
-    return JNI.AggregationInfoVector_size(swigCPtr, this);
+    return JNI.SignatureVector_size(swigCPtr, this);
   }
 
   public void removeRange(int from, int to) {
-    JNI.AggregationInfoVector_removeRange(swigCPtr, this, from, to);
+    JNI.SignatureVector_removeRange(swigCPtr, this, from, to);
   }
 
 }

@@ -1,4 +1,4 @@
-package org.xebecj.bls;
+package io.github.xebecproject.bls;
 
 import com.google.common.io.BaseEncoding;
 import org.junit.Test;
@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Random;
 
-import static org.xebecj.bls.BLS.STS_OK;
+import static io.github.xebecproject.bls.BLS.STS_OK;
 import static org.junit.Assert.*;
 
 public class BlsSignatureTest extends BaseTest {

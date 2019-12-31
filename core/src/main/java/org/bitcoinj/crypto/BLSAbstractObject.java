@@ -2,8 +2,8 @@ package org.bitcoinj.crypto;
 
 import com.google.common.base.Preconditions;
 import org.bitcoinj.core.*;
-import org.xebecj.bls.BLSObject;
-import org.xebecj.bls.JNI;
+import io.github.xebecproject.bls.BLSObject;
+import io.github.xebecproject.bls.JNI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

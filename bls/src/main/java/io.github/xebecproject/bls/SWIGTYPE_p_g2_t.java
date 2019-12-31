@@ -17,20 +17,20 @@
  * Version 3.0.12
  */
 
-package org.xebecj.bls;
+package io.github.xebecproject.bls;
 
-public class SWIGTYPE_p_std__vectorT_size_t_t {
+public class SWIGTYPE_p_g2_t {
   private transient long swigCPtr;
 
-  protected SWIGTYPE_p_std__vectorT_size_t_t(long cPtr, @SuppressWarnings("unused") boolean futureUse) {
+  protected SWIGTYPE_p_g2_t(long cPtr, @SuppressWarnings("unused") boolean futureUse) {
     swigCPtr = cPtr;
   }
 
-  protected SWIGTYPE_p_std__vectorT_size_t_t() {
+  protected SWIGTYPE_p_g2_t() {
     swigCPtr = 0;
   }
 
-  protected static long getCPtr(SWIGTYPE_p_std__vectorT_size_t_t obj) {
+  protected static long getCPtr(SWIGTYPE_p_g2_t obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 }

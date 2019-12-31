@@ -17,21 +17,21 @@
  * Version 3.0.12
  */
 
-package org.xebecj.bls;
+package io.github.xebecproject.bls;
 
 import com.google.common.base.Preconditions;
 
-public class MessageHashVector extends java.util.AbstractList<byte []> {
+public class PrivateKeyVector extends java.util.AbstractList<PrivateKey> {
   private transient long swigCPtr;
   protected transient boolean swigCMemOwn;
 
-  protected MessageHashVector(long cPtr, boolean cMemoryOwn) {
+  protected PrivateKeyVector(long cPtr, boolean cMemoryOwn) {
     Preconditions.checkArgument(cPtr != 0);
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(MessageHashVector obj) {
+  protected static long getCPtr(PrivateKeyVector obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 
@@ -43,69 +43,63 @@ public class MessageHashVector extends java.util.AbstractList<byte []> {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        JNI.delete_ByteArrayVec(swigCPtr);
+        JNI.delete_PrivateKeyVec(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
-  MessageHashVector(java.util.Collection<byte[]> e) {
+  public PrivateKeyVector(java.util.Collection<PrivateKey> e) {
     this.reserve(e.size());
-    for(byte[] value: e) {
+    for(PrivateKey value: e) {
       this.push_back(value);
     }
   }
 
-  public MessageHashVector() {
-    this(JNI.new_ByteArrayVec__SWIG_0(), true);
+  public PrivateKeyVector() {
+    this(JNI.new_PrivateKeyVec__SWIG_0(), true);
   }
 
-  public MessageHashVector(long n) {
-    this(JNI.new_ByteArrayVec__SWIG_1(n), true);
-  }
-
-  public MessageHashVector(MessageHashVector o) {
-    this(JNI.new_ByteArrayVec__SWIG_2(MessageHashVector.getCPtr(o), o), true);
+  public PrivateKeyVector(PrivateKeyVector o) {
+    this(JNI.new_PrivateKeyVec__SWIG_2(PrivateKeyVector.getCPtr(o), o), true);
   }
 
   public long capacity() {
-    return JNI.ByteArrayVec_capacity(swigCPtr, this);
+    return JNI.PrivateKeyVec_capacity(swigCPtr, this);
   }
 
   public void reserve(long n) {
-    JNI.ByteArrayVec_reserve(swigCPtr, this, n);
+    JNI.PrivateKeyVec_reserve(swigCPtr, this, n);
   }
 
   public boolean isEmpty() {
-    return JNI.ByteArrayVec_isEmpty(swigCPtr, this);
+    return JNI.PrivateKeyVec_isEmpty(swigCPtr, this);
   }
 
   public void clear() {
-    JNI.ByteArrayVec_clear(swigCPtr, this);
+    JNI.PrivateKeyVec_clear(swigCPtr, this);
   }
 
-  public void push_back(byte [] x) {
-    Preconditions.checkArgument(x.length == BLS.MESSAGE_HASH_LEN);
-    JNI.ByteArrayVec_push_back(swigCPtr, this, x);
+  public void push_back(PrivateKey x) {
+    Preconditions.checkNotNull(x);
+    JNI.PrivateKeyVec_push_back(swigCPtr, this, PrivateKey.getCPtr(x), x);
   }
 
-  public byte [] get(int i) {
-    return JNI.ByteArrayVec_get(swigCPtr, this, i);
+  public PrivateKey get(int i) {
+    return new PrivateKey(JNI.PrivateKeyVec_get(swigCPtr, this, i), false);
   }
 
-  public byte [] set(int i, byte [] VECTOR_VALUE_IN) {
-    Preconditions.checkArgument(VECTOR_VALUE_IN.length == BLS.MESSAGE_HASH_LEN);
-    return JNI.ByteArrayVec_set(swigCPtr, this, i, VECTOR_VALUE_IN);
+  public PrivateKey set(int i, PrivateKey VECTOR_VALUE_IN) {
+    Preconditions.checkNotNull(VECTOR_VALUE_IN);
+    return new PrivateKey(JNI.PrivateKeyVec_set(swigCPtr, this, i, PrivateKey.getCPtr(VECTOR_VALUE_IN), VECTOR_VALUE_IN), true);
   }
 
   public int size() {
-    return JNI.ByteArrayVec_size(swigCPtr, this);
+    return JNI.PrivateKeyVec_size(swigCPtr, this);
   }
 
   public void removeRange(int from, int to) {
-    JNI.ByteArrayVec_removeRange(swigCPtr, this, from, to);
+    JNI.PrivateKeyVec_removeRange(swigCPtr, this, from, to);
   }
-
-
 
 }

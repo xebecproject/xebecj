@@ -1,4 +1,4 @@
-package org.xebecj.bls;
+package io.github.xebecproject.bls;
 
 import com.google.common.io.BaseEncoding;
 

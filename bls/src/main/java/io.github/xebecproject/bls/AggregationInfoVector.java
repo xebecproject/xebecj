@@ -17,21 +17,22 @@
  * Version 3.0.12
  */
 
-package org.xebecj.bls;
+package io.github.xebecproject.bls;
+
 
 import com.google.common.base.Preconditions;
 
-public class BigIntegerVector extends java.util.AbstractList<SWIGTYPE_p_bn_t> {
+public class AggregationInfoVector extends java.util.AbstractList<AggregationInfo> {
   private transient long swigCPtr;
   protected transient boolean swigCMemOwn;
 
-  protected BigIntegerVector(long cPtr, boolean cMemoryOwn) {
+  protected AggregationInfoVector(long cPtr, boolean cMemoryOwn) {
     Preconditions.checkArgument(cPtr != 0);
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(BigIntegerVector obj) {
+  protected static long getCPtr(AggregationInfoVector obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 
@@ -43,69 +44,64 @@ public class BigIntegerVector extends java.util.AbstractList<SWIGTYPE_p_bn_t> {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        JNI.delete_BigIntegerVec(swigCPtr);
+        JNI.delete_AggregationInfoVector(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
-  public BigIntegerVector(java.util.Collection<SWIGTYPE_p_bn_t> e) {
+  public AggregationInfoVector(java.util.Collection<AggregationInfo> e) {
+    Preconditions.checkNotNull(e);
     this.reserve(e.size());
-    for(SWIGTYPE_p_bn_t value: e) {
+    for(AggregationInfo value: e) {
       this.push_back(value);
     }
   }
 
-  public BigIntegerVector() {
-    this(JNI.new_BigIntegerVec__SWIG_0(), true);
+  public AggregationInfoVector() {
+    this(JNI.new_AggregationInfoVector__SWIG_0(), true);
   }
 
-  public BigIntegerVector(long n) {
-    this(JNI.new_BigIntegerVec__SWIG_1(n), true);
-  }
-
-  public BigIntegerVector(BigIntegerVector o) {
-    this(JNI.new_BigIntegerVec__SWIG_2(BigIntegerVector.getCPtr(o), o), true);
+  public AggregationInfoVector(AggregationInfoVector o) {
+    this(JNI.new_AggregationInfoVector__SWIG_2(AggregationInfoVector.getCPtr(o), o), true);
   }
 
   public long capacity() {
-    return JNI.BigIntegerVec_capacity(swigCPtr, this);
+    return JNI.AggregationInfoVector_capacity(swigCPtr, this);
   }
 
   public void reserve(long n) {
-    JNI.BigIntegerVec_reserve(swigCPtr, this, n);
+    JNI.AggregationInfoVector_reserve(swigCPtr, this, n);
   }
 
   public boolean isEmpty() {
-    return JNI.BigIntegerVec_isEmpty(swigCPtr, this);
+    return JNI.AggregationInfoVector_isEmpty(swigCPtr, this);
   }
 
   public void clear() {
-    JNI.BigIntegerVec_clear(swigCPtr, this);
+    JNI.AggregationInfoVector_clear(swigCPtr, this);
   }
 
-  public void push_back(SWIGTYPE_p_bn_t x) {
+  public void push_back(AggregationInfo x) {
     Preconditions.checkNotNull(x);
-    JNI.BigIntegerVec_push_back(swigCPtr, this, SWIGTYPE_p_bn_t.getCPtr(x));
+    JNI.AggregationInfoVector_push_back(swigCPtr, this, AggregationInfo.getCPtr(x), x);
   }
 
-  public SWIGTYPE_p_bn_t get(int i) {
-    long cPtr = JNI.BigIntegerVec_get(swigCPtr, this, i);
-    return (cPtr == 0) ? null : new SWIGTYPE_p_bn_t(cPtr, false);
+  public AggregationInfo get(int i) {
+    return new AggregationInfo(JNI.AggregationInfoVector_get(swigCPtr, this, i), false);
   }
 
-  public SWIGTYPE_p_bn_t set(int i, SWIGTYPE_p_bn_t VECTOR_VALUE_IN) {
+  public AggregationInfo set(int i, AggregationInfo VECTOR_VALUE_IN) {
     Preconditions.checkNotNull(VECTOR_VALUE_IN);
-    long cPtr = JNI.BigIntegerVec_set(swigCPtr, this, i, SWIGTYPE_p_bn_t.getCPtr(VECTOR_VALUE_IN));
-    return (cPtr == 0) ? null : new SWIGTYPE_p_bn_t(cPtr, false);
+    return new AggregationInfo(JNI.AggregationInfoVector_set(swigCPtr, this, i, AggregationInfo.getCPtr(VECTOR_VALUE_IN), VECTOR_VALUE_IN), true);
   }
 
   public int size() {
-    return JNI.BigIntegerVec_size(swigCPtr, this);
+    return JNI.AggregationInfoVector_size(swigCPtr, this);
   }
 
   public void removeRange(int from, int to) {
-    JNI.BigIntegerVec_removeRange(swigCPtr, this, from, to);
+    JNI.AggregationInfoVector_removeRange(swigCPtr, this, from, to);
   }
 
 }

@@ -3,9 +3,9 @@ package org.bitcoinj.crypto;
 import com.google.common.base.Preconditions;
 import org.bitcoinj.core.NetworkParameters;
 import org.bitcoinj.core.ProtocolException;
-import org.xebecj.bls.BLS;
-import org.xebecj.bls.PublicKey;
-import org.xebecj.bls.PublicKeyVector;
+import io.github.xebecproject.bls.BLS;
+import io.github.xebecproject.bls.PublicKey;
+import io.github.xebecproject.bls.PublicKeyVector;
 
 import java.io.IOException;
 import java.io.OutputStream;

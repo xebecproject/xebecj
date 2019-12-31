@@ -17,21 +17,21 @@
  * Version 3.0.12
  */
 
-package org.xebecj.bls;
+package io.github.xebecproject.bls;
 
 import com.google.common.base.Preconditions;
 
-public class PrivateKeyVector extends java.util.AbstractList<PrivateKey> {
+public class BigIntegerVector extends java.util.AbstractList<SWIGTYPE_p_bn_t> {
   private transient long swigCPtr;
   protected transient boolean swigCMemOwn;
 
-  protected PrivateKeyVector(long cPtr, boolean cMemoryOwn) {
+  protected BigIntegerVector(long cPtr, boolean cMemoryOwn) {
     Preconditions.checkArgument(cPtr != 0);
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(PrivateKeyVector obj) {
+  protected static long getCPtr(BigIntegerVector obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 
@@ -43,63 +43,69 @@ public class PrivateKeyVector extends java.util.AbstractList<PrivateKey> {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        JNI.delete_PrivateKeyVec(swigCPtr);
+        JNI.delete_BigIntegerVec(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
-  public PrivateKeyVector(java.util.Collection<PrivateKey> e) {
+  public BigIntegerVector(java.util.Collection<SWIGTYPE_p_bn_t> e) {
     this.reserve(e.size());
-    for(PrivateKey value: e) {
+    for(SWIGTYPE_p_bn_t value: e) {
       this.push_back(value);
     }
   }
 
-  public PrivateKeyVector() {
-    this(JNI.new_PrivateKeyVec__SWIG_0(), true);
+  public BigIntegerVector() {
+    this(JNI.new_BigIntegerVec__SWIG_0(), true);
   }
 
-  public PrivateKeyVector(PrivateKeyVector o) {
-    this(JNI.new_PrivateKeyVec__SWIG_2(PrivateKeyVector.getCPtr(o), o), true);
+  public BigIntegerVector(long n) {
+    this(JNI.new_BigIntegerVec__SWIG_1(n), true);
+  }
+
+  public BigIntegerVector(BigIntegerVector o) {
+    this(JNI.new_BigIntegerVec__SWIG_2(BigIntegerVector.getCPtr(o), o), true);
   }
 
   public long capacity() {
-    return JNI.PrivateKeyVec_capacity(swigCPtr, this);
+    return JNI.BigIntegerVec_capacity(swigCPtr, this);
   }
 
   public void reserve(long n) {
-    JNI.PrivateKeyVec_reserve(swigCPtr, this, n);
+    JNI.BigIntegerVec_reserve(swigCPtr, this, n);
   }
 
   public boolean isEmpty() {
-    return JNI.PrivateKeyVec_isEmpty(swigCPtr, this);
+    return JNI.BigIntegerVec_isEmpty(swigCPtr, this);
   }
 
   public void clear() {
-    JNI.PrivateKeyVec_clear(swigCPtr, this);
+    JNI.BigIntegerVec_clear(swigCPtr, this);
   }
 
-  public void push_back(PrivateKey x) {
+  public void push_back(SWIGTYPE_p_bn_t x) {
     Preconditions.checkNotNull(x);
-    JNI.PrivateKeyVec_push_back(swigCPtr, this, PrivateKey.getCPtr(x), x);
+    JNI.BigIntegerVec_push_back(swigCPtr, this, SWIGTYPE_p_bn_t.getCPtr(x));
   }
 
-  public PrivateKey get(int i) {
-    return new PrivateKey(JNI.PrivateKeyVec_get(swigCPtr, this, i), false);
+  public SWIGTYPE_p_bn_t get(int i) {
+    long cPtr = JNI.BigIntegerVec_get(swigCPtr, this, i);
+    return (cPtr == 0) ? null : new SWIGTYPE_p_bn_t(cPtr, false);
   }
 
-  public PrivateKey set(int i, PrivateKey VECTOR_VALUE_IN) {
+  public SWIGTYPE_p_bn_t set(int i, SWIGTYPE_p_bn_t VECTOR_VALUE_IN) {
     Preconditions.checkNotNull(VECTOR_VALUE_IN);
-    return new PrivateKey(JNI.PrivateKeyVec_set(swigCPtr, this, i, PrivateKey.getCPtr(VECTOR_VALUE_IN), VECTOR_VALUE_IN), true);
+    long cPtr = JNI.BigIntegerVec_set(swigCPtr, this, i, SWIGTYPE_p_bn_t.getCPtr(VECTOR_VALUE_IN));
+    return (cPtr == 0) ? null : new SWIGTYPE_p_bn_t(cPtr, false);
   }
 
   public int size() {
-    return JNI.PrivateKeyVec_size(swigCPtr, this);
+    return JNI.BigIntegerVec_size(swigCPtr, this);
   }
 
   public void removeRange(int from, int to) {
-    JNI.PrivateKeyVec_removeRange(swigCPtr, this, from, to);
+    JNI.BigIntegerVec_removeRange(swigCPtr, this, from, to);
   }
 
 }

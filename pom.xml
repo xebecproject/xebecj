@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.xebecj</groupId>
+  <groupId>io.github.xebecproject</groupId>
   <artifactId>xebecj-parent</artifactId>
   <version>0.16.4-SNAPSHOT</version>
   <packaging>pom</packaging>
@@ -20,7 +20,6 @@
     <version>7</version>
   </parent>
 
-
   <scm>
     <connection>scm:git:https://github.com/xebecproject/xebecj</connection>
     <developerConnection>scm:git:https://github.com/xebecproject/xebecj</developerConnection>
@@ -29,7 +28,7 @@
 
   <name>xebecj Parent</name>
   <description>Provides the common configuration for the xebecj modules</description>
-  <url>http://xebec.site/xebecj/</url>
+  <url>https://xebecproject.github.io/xebecj/</url>
 
   <licenses>
     <license>
@@ -57,7 +56,7 @@
     <repository>
       <id>central</id>
       <name>xebecproject</name>
-      <url>https://api.bintray.com/maven/xebecproject/xebecj/org.xebecj/;publish=1</url>
+      <url>https://api.bintray.com/maven/xebecproject/io.github.xebecproject/io.github.xebecproject/;publish=1</url>
     </repository>
 
     <snapshotRepository>
@@ -239,6 +238,7 @@
                   </plugin>
 
                   <plugin>
+                  
                       <groupId>org.apache.maven.plugins</groupId>
                       <artifactId>maven-gpg-plugin</artifactId>
                       <version>1.5</version>
