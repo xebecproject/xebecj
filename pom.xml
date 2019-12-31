@@ -57,7 +57,7 @@
     <repository>
       <id>central</id>
       <name>xebecproject</name>
-      <url>https://api.bintray.com/maven/xebec/Xebecj/site.xebecj/;publish=1</url>
+      <url>https://api.bintray.com/maven/xebecproject/xebecj/org.xebecj/;publish=1</url>
     </repository>
 
     <snapshotRepository>
